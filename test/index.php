@@ -15,7 +15,7 @@ $server = new Server($endpoint);
 $server->on('connection', function($c) use(&$i, $server) {
   $c->on('data', function($name) use($c, &$i, $server) {
     $i++;
-    $c->send('Hello '.$name)->close();
+    $c->write('Hello '.$name)->close();
     if ($i == 5) {
       echo "--> Server has done its job !\n";
       $server->close();
@@ -28,7 +28,7 @@ $server->on('connection', function($c) use(&$i, $server) {
 foreach($peoples as $who) {
   echo ">> $who talk\n";
   $c = new Client($endpoint);
-  $c->send($who)->on('data', function($greetings) {
+  $c->write($who)->on('data', function($greetings) {
     echo "<< $greetings\n";
   });
 }

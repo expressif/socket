@@ -17,7 +17,7 @@ Sockets implementation using Expressif streams
   $server = new Server($endpoint);
   $server->on('connection', function($client) use() {
     $client->on('data', function($name) use($client) {
-      $client->send('Hello '.$name)->close();
+      $client->write('Hello '.$name)->close();
     });
   });
 
