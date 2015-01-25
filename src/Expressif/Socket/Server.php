@@ -24,7 +24,7 @@ namespace Expressif\Socket {
     /**
      * Handles the connection
      */
-    public function _trigger() {
+    public function _read() {
       $client = $this->accept();
       if ($client) parent::emit('connection', array($client));
     }
