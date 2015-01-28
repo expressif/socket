@@ -10,7 +10,7 @@
     ],
     "minimum-stability": "beta",
     "require": {
-      "expressif/stream": "0.1.0-rc1"
+      "expressif/stream": "0.1.0-rc2"
     },
     "autoload": {
         "psr-0": {
